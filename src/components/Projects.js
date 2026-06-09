@@ -11,7 +11,9 @@ function Projects() {
           <p> A responsive portfolio website built using React to showcase my skills,
     projects, and contact information.</p>
           <p className="tech">React • CSS • JavaScript </p>
-
+          <div className="project-links">
+  <a href="https://github.com/likithachikkala-25/FUTURE_FS_01" className="btn github">GitHub</a>
+         </div>
           
         </div>
 

@@ -14,14 +14,14 @@ function Hero() {
       
         <div className="social-row">
         <a 
-          href="https://linkedin.com/in/yourname" 
+          href="https://www.linkedin.com/in/likitha-chikkala-403030301/" 
           className="hero-btn linkedin"
         >
           LinkedIn
         </a>
 
         <a 
-          href="https://github.com/yourusername" 
+          href="https://github.com/likithachikkala-25" 
           className="hero-btn github"
         >
           GitHub
