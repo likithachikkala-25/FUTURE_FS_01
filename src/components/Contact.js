@@ -1,29 +1,43 @@
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 function Contact() {
-  const [messageSent, setMessageSent] = useState(false);
+  const form = useRef();
+  const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();   // ❌ stop page reload
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    // 👉 you can send data later here
-
-    setMessageSent(true); // ✅ show success
+    emailjs
+      .sendForm(
+        "service_portfolio",
+        "template_krpxi97",
+        form.current,
+        "KaSnbMT-rUpBZaeZJ"
+      )
+      .then(
+        () => {
+          setSuccess(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
-    <section id="contact" className="contact">
+    <section className="contact" id="contact">
       <h2>Contact Me</h2>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
+      <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
 
-      {messageSent && <p className="success">Message sent successfully!</p>}
+      {success && <p className="success">Message sent successfully!</p>}
     </section>
   );
 }
