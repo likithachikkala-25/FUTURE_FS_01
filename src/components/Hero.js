@@ -1,4 +1,4 @@
-import profile from "../profile.jpg";
+import profile from "../profile.png";
 function Hero() {
   return (
     <section className="hero" id="home">
